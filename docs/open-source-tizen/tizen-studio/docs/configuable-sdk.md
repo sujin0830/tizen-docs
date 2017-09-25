@@ -33,7 +33,7 @@ Tizen Studio provides a feature to develop applications in a configurable tizen 
 
 ![](image/configuable_sdk/configurable-tizen-flow.PNG)
 
-## Step 1 : Installing the Configuralbe SDK
+## Step 1 : Installing the Configurable SDK
 To install Extension Configurable SDK, proceed as follows.
 
 1. Setting IOT-Headed-4.0 in Package Manager\
