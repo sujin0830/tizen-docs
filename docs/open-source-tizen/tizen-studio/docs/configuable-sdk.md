@@ -22,7 +22,7 @@ Tizen Studio provides a feature to develop applications in a configurable tizen 
 
 # Tizen Studio for the Configurable SDK
 - Tizen Studio also provides the main features of the same life cycle of the App as the existing Profile (Mobile, Wearable, TV) to the Configurable SDK.
-- The Configurable SDK is installed and managed by the Extension SDK from Pakcage Manager.
+- The Configurable SDK is installed and managed by the Extension SDK from Package Manager.
   - Create new project
   - Config.xml, manifest.xml validation
   - API code assist
