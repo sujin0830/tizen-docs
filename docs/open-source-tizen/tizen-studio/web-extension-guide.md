@@ -54,4 +54,3 @@ The Tizen IDE provides the following extension points for IDE functionality:
 
   For an example, see [Modifying Eclipse Themes](example-web-theme-ext.md).
 
-If you have additional extension points, contact us.
