@@ -98,33 +98,36 @@ To build an extension:
 5. When building is complete, move the following files:
     - `libecp.jar`, `emulator-control-panel.jar`, and `emulator-control-panel-cli.jar` to `sdk/tools/emulator/bin`
     - Device `xml` and `jar` files to `platforms/<version>/<profile>/emulator-resources/plugins`
-        - You must also rename the `.jar` and `.xml` files as 'ecp-plugin-<profile>-<version>.<extension>'.
+        - You must also rename the `.jar` and `.xml` files as `ecp-plugin-<profile>-<version>.<extension>`.
 
 To execute the extension in Eclipse:
 
 1. Launch the Eclipse IDE.
 2. Import all the project files.
-3. In the run configuration, set the main project and class.
-   - Project: `ECP-UI` for UI or `ECP-CLI` for CLI
-   - Main class: `org.tizen.ecp.EmulatorControlPanel` for UI or `org.tizen.cli.TizenEmulatorCli` for CLI
-4. In the run configuration, set the program arguments.
-   - vm_name: the name of vm instance
-   - base_port: this can be found the first item from the context menu when you right click on an emulator. The port indicates the connected sdb port, so you should subtract 1 to get the base port.
-   - platform_version: see below example
-   - profile: see below example
-   For example:
-   ```
-   vm_name=w-0906-1 base_port=26100 platform_version=tizen-2.3.2 profile=wearable
-   ```
-   The platform version and profile are used in the directory names:
-   ```
-   <tizen-sdk>/platforms/<platform_version>/<profile>
-   ```
-5. In the run configuration, add the `ECP-DEVICES` project into class path and source path.
-6. In the run configuration, enter the following VM arguments. This is needed in order to change the search option to find the device xml and jar location. Basically, non-develop mode of ECP searches 3 above relative directory to find sdk.info. If it is develop mode, it searches current directory and the executable binary directory.
-    - `-Ddevelop`
-7. Create a symbolic link on a terminal to set target directory of tizen studio. Tizen studio base location is used to find the target device xml and jar location, including extension version and profile location.
-    - `sdk.info` file is found based on the SDK installation path
-    - For example: `emulator-control-panel/ECP-LIB`
+3. In the run configuration:
+   - Set the main project and class:
+     - Project: `ECP-UI` for UI or `ECP-CLI` for CLI
+     - Main class: `org.tizen.ecp.EmulatorControlPanel` for UI or `org.tizen.cli.TizenEmulatorCli` for CLI
+   - Set the program arguments:
+     - `vm_name`: VM instance name
+     - `base_port`: Base port  
+       To determine the value, right-click an emulator. The first item in the context menu is the connected SDB port. Subtract 1 to get the base port.
+     - `platform_version`: Platform version, as shown in the following example
+     - `profile`: Profile, as shown in the following example
+	 
+     For example:
+     ```
+     vm_name=w-0906-1 base_port=26100 platform_version=tizen-2.3.2 profile=wearable
+     ```
+     The platform version and profile are used in the directory names:
+     ```
+     <tizen-sdk>/platforms/<platform_version>/<profile>
+     ```
+   - Add the `ECP-DEVICES` project into the class path and source path.
+   - Enter the following VM argument:
+     - `-Ddevelop`  
+       This changes the search option to find the device `xml` and `jar` file location. Basically, the non-develop mode of ECP searches 3 above relative directories to find `sdk.info`. The develop mode searches the current directory and the executable binary directory.
+4. Create a symbolic link on a terminal to set the Tizen Studio target directory. The Tizen Studio base location is used to find the target device `xml` and `jar` file location, including the extension version and profile location.
+    - `sdk.info` file is found based on the SDK installation path  
+      For example: `emulator-control-panel/ECP-LIB`
       - `ln -s ~/tizen-studio/sdk.info sdk.info`
-
